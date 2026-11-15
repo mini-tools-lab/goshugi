@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>ご祝儀相場チェッカー｜関係性と年代でわかる結婚式のご祝儀目安</title>
+<meta name="description" content="結婚式のご祝儀はいくら包む？新郎新婦との関係性、あなたの年代、出席の形（1人・夫婦・欠席）を選ぶだけで、ご祝儀の相場目安とおすすめ金額がすぐわかります。金額のマナー（偶数・4万円・9万円の注意点）もあわせて確認できます。登録不要・無料。">
+<link rel="canonical" href="https://mini-tools-lab.github.io/goshugi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="ご祝儀相場チェッカー">
+<meta property="og:title" content="ご祝儀相場チェッカー｜関係性と年代でわかる結婚式のご祝儀目安">
+<meta property="og:description" content="関係性・年代・出席の形を選ぶだけで、ご祝儀の相場目安とおすすめ金額がすぐわかります。金額のマナーもチェック。登録不要・無料。">
+<meta property="og:url" content="https://mini-tools-lab.github.io/goshugi/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ご祝儀相場チェッカー｜関係性と年代でわかる結婚式のご祝儀目安">
+<meta name="twitter:description" content="結婚式のご祝儀はいくら？関係性・年代・出席の形から相場目安とおすすめ金額をチェック。登録不要・無料。">
+<style>
+:root{
+--bg:#f3f5f0; --surface:#ffffff; --surface2:#eef3ec; --text:#1a2e28; --muted:#5b6b64; --line:#dde5dc;
+--primary:#0f766e; --primary-dark:#0b5e57; --primary-soft:#e0f2ef; --accent:#e86a33; --accent-soft:#fff0e6;
+--danger:#dc2626; --ok:#15803d; --radius:18px; --shadow:0 4px 24px rgba(20,50,40,.08);
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#101613; --surface:#1a211e; --surface2:#232d28; --text:#e8f0ec; --muted:#9db0a6; --line:#2e3a34; --primary:#2dd4bf; --primary-dark:#2dd4bf; --primary-soft:#14332f; --accent:#fb923c; --accent-soft:#3a2415; --shadow:0 4px 24px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;line-height:1.6}
+button,input,select{font:inherit;min-height:44px}
+h1,h2{font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;font-weight:700;line-height:1.3;margin:0}
+.wrap{max-width:980px;margin:0 auto;padding:20px 16px 48px}
+.hero{padding:8px 2px 18px}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:.02em}
+.hero h1 span{color:var(--primary)}
+.hero p{color:var(--muted);margin:8px 0 0;font-size:15px;max-width:640px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+.card h2{font-size:18px;display:flex;align-items:center;gap:8px}
+.num{width:28px;height:28px;border-radius:50%;background:var(--primary-soft);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.hint{font-size:13px;color:var(--muted);margin:6px 0 12px}
+.field{margin-bottom:14px}
+.field label{font-size:13px;font-weight:700;display:block;margin-bottom:5px}
+select{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--surface);color:var(--text);width:100%}
+select:focus{outline:2px solid var(--primary);outline-offset:1px;border-color:transparent}
+.btn{border:0;border-radius:12px;padding:12px 16px;font-weight:700;cursor:pointer;background:var(--primary);color:#fff;white-space:nowrap;width:100%;font-size:16px}
+.btn:hover{background:var(--primary-dark)}
+.result{margin-top:16px;background:var(--primary);color:#fff;border-radius:20px;padding:22px;box-shadow:var(--shadow);text-align:center}
+@media(prefers-color-scheme:dark){.result{background:#0f3d38}}
+.result .r-label{font-size:14px;font-weight:700;opacity:.95}
+.result .r-amount{font-size:44px;font-weight:900;line-height:1.2;margin:4px 0}
+.result .r-range{font-size:15px;opacity:.95}
+.result .r-note{margin-top:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:12px 14px;font-size:14px;text-align:left}
+.manner{margin-top:16px}
+.manner ul{margin:8px 0 0;padding-left:20px;font-size:14px}
+.manner li{margin:6px 0}
+.manner .ng{color:var(--danger);font-weight:700}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+th{background:var(--surface2)}
+td:first-child,th:first-child{text-align:left;font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+footer{margin-top:28px;color:var(--muted);font-size:13px;text-align:center}
+footer a{color:var(--primary);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<h1>ご祝儀<span>相場</span>チェッカー</h1>
+<p>結婚式のご祝儀、いくら包めばいい？ 新郎新婦との関係性、あなたの年代、出席の形を選ぶだけで、相場の目安とおすすめ金額がわかります。</p>
+</header>
+
+<section class="card" aria-labelledby="check-h">
+<h2 id="check-h"><span class="num">1</span>条件を選ぶ</h2>
+<p class="hint">3つ選ぶと、下におすすめ金額が表示されます。</p>
+<div class="field">
+<label for="rel">新郎新婦は、あなたにとって</label>
+<select id="rel">
+<option value="friend">友人</option>
+<option value="colleague">職場の同僚</option>
+<option value="senior">上司・先輩</option>
+<option value="junior">部下・後輩</option>
+<option value="sibling">兄弟・姉妹</option>
+<option value="cousin">いとこ</option>
+<option value="nephew">甥・姪</option>
+<option value="mentor">恩師</option>
+</select>
+</div>
+<div class="field">
+<label for="age">あなたの年代</label>
+<select id="age">
+<option value="20s">20代</option>
+<option value="30s" selected>30代</option>
+<option value="40s">40代</option>
+<option value="50s">50代以上</option>
+</select>
+</div>
+<div class="field">
+<label for="mode">出席の形</label>
+<select id="mode">
+<option value="solo">1人で出席する</option>
+<option value="couple">夫婦で出席する</option>
+<option value="absent">欠席する（お祝いだけ贈る）</option>
+</select>
+</div>
+<button class="btn" id="calc">相場をチェックする</button>
+
+<div class="result" id="result" aria-live="polite">
+<div class="r-label" id="r-label">おすすめのご祝儀</div>
+<div class="r-amount" id="r-amount">3万円</div>
+<div class="r-range" id="r-range">相場の目安：3万円</div>
+<div class="r-note" id="r-note"></div>
+</div>
+</section>
+
+<section class="card manner" aria-labelledby="manner-h">
+<h2 id="manner-h"><span class="num">2</span>金額のマナー</h2>
+<ul>
+<li><span class="ng">4万円・9万円はNG</span>：「死」「苦」を連想させるため、避けるのがマナーです。</li>
+<li>偶数は「割れる＝別れる」を連想させるため、奇数の金額が基本です。ただし<strong>2万円は「ペア」、8万円は「末広がり」、10万円</strong>は例外として広く使われています。</li>
+<li>2万円にするときは、1万円札1枚＋5千円札2枚で「3枚（奇数枚）」にする工夫もあります。</li>
+<li>お札は<strong>新札</strong>を用意し、ふくさに包んで持参しましょう。</li>
+</ul>
+</section>
+
+<div class="grid">
+<section class="card" aria-labelledby="table-h">
+<h2 id="table-h">早見表（1人で出席）</h2>
+<p class="hint">関係性 × 年代のおすすめ金額です。詳しい考え方は<a href="guide.html">解説ページ</a>へ。</p>
+<table>
+<tr><th>関係性</th><th>20代</th><th>30代</th><th>40代</th><th>50代〜</th></tr>
+<tr><td>友人</td><td>3万円</td><td>3万円</td><td>3万円</td><td>3万円</td></tr>
+<tr><td>同僚</td><td>3万円</td><td>3万円</td><td>3万円</td><td>3万円</td></tr>
+<tr><td>上司・先輩</td><td>3万円</td><td>3万円</td><td>3万円</td><td>3万円</td></tr>
+<tr><td>部下・後輩</td><td>3万円</td><td>3万円</td><td>5万円</td><td>5万円</td></tr>
+<tr><td>兄弟・姉妹</td><td>3万円</td><td>5万円</td><td>5万円</td><td>5万円</td></tr>
+<tr><td>いとこ</td><td>3万円</td><td>3万円</td><td>5万円</td><td>5万円</td></tr>
+<tr><td>甥・姪</td><td>3万円</td><td>3万円</td><td>5万円</td><td>10万円</td></tr>
+<tr><td>恩師</td><td>3万円</td><td>3万円</td><td>5万円</td><td>5万円</td></tr>
+</table>
+<p class="note">※ 金額は一般的な目安です。地域や家庭の慣習によって異なります。親族の場合は、他の親族と金額を揃えるのが安心です。</p>
+</section>
+
+<section class="card" aria-labelledby="about-h">
+<h2 id="about-h">このツールについて</h2>
+<p class="hint">ゼクシィ結婚トレンド調査や全日本冠婚葬祭互助協会の婚礼アンケートなど、公開されている調査の「最も多い金額」を中心に、複数のマナー資料を照合して目安を作成しています。入力した内容はどこにも送信されません。</p>
+<p class="hint">夫婦で出席する場合は、1人分の単純な2倍ではなく「+2万円前後」が目安です。欠席する場合は、出席相場の半額〜3分の1程度をお祝いとして贈るのが一般的です。</p>
+<p class="hint"><a href="guide.html">解説ページ：ご祝儀相場の考え方とマナー</a>では、金額の決め方やご祝儀袋の基本をまとめています。</p>
+</section>
+</div>
+
+<footer>
+<p>ご祝儀相場チェッカー｜<a href="guide.html">解説ページ</a>｜金額は一般的な目安です。最終的には地域やご家庭の慣習に合わせてご判断ください。</p>
+</footer>
+</div>
+
+<script>
+"use strict";
+// solo[rel][age] = [おすすめ, 下限, 上限, ワンポイント]
+var SOLO = {
+friend: {
+ "20s":[30000,20000,30000,"20代前半や学生のうちは、2万円でも失礼にはなりません。無理のない範囲で大丈夫です。"],
+ "30s":[30000,30000,30000,"もっとも多い金額です。特に親しい友人なら、5万円にする人もいます。"],
+ "40s":[30000,30000,50000,"基本は3万円。お世話になっている友人や親しい間柄なら5万円も選ばれています。"],
+ "50s":[30000,30000,50000,"基本は3万円。年長者として気持ちを添えるなら5万円も目安に入ります。"]},
+colleague: {
+ "20s":[30000,20000,30000,"同僚は3万円が基本。20代前半は2万円のこともあります。"],
+ "30s":[30000,30000,30000,"同僚の相場は3万円で安定しています。連名で贈る場合は職場の慣習に合わせましょう。"],
+ "40s":[30000,30000,50000,"基本は3万円。役職がある場合や、部下にあたる場合は5万円も目安です。"],
+ "50s":[30000,30000,50000,"基本は3万円。立場に応じて5万円にする人もいます。"]},
+senior: {
+ "20s":[30000,30000,30000,"新郎新婦が上司・先輩の場合も3万円が基本。多すぎると、かえって気を遣わせてしまいます。"],
+ "30s":[30000,30000,30000,"目上の方へのご祝儀は3万円が基本です。"],
+ "40s":[30000,30000,50000,"基本は3万円。日頃から特にお世話になっている場合は5万円も選ばれます。"],
+ "50s":[30000,30000,50000,"基本は3万円。関係の深さに応じて5万円も目安に入ります。"]},
+junior: {
+ "20s":[30000,30000,30000,"新郎新婦が部下・後輩の場合、20代のうちは3万円で十分です。"],
+ "30s":[30000,30000,50000,"基本は3万円。主賓挨拶やスピーチを頼まれている場合は、5万円が目安です。"],
+ "40s":[50000,30000,50000,"上司の立場としては5万円が目安。スピーチなどを頼まれたら迷わず5万円にしましょう。"],
+ "50s":[50000,50000,50000,"上司の立場では5万円が目安です。"]},
+sibling: {
+ "20s":[30000,30000,50000,"兄弟・姉妹は、金額そのものより「他の兄弟と揃える」ことが何より大事です。まず兄弟間で相談を。"],
+ "30s":[50000,50000,50000,"30代では5万円が目安。他の兄弟や親の意向と揃えるのが安心です。"],
+ "40s":[50000,50000,100000,"5万円が中心で、余裕があれば10万円も。家庭の慣習の影響が大きい部分です。"],
+ "50s":[50000,50000,100000,"5万〜10万円が目安。親族間で金額がちぐはぐにならないよう、事前の相談がおすすめです。"]},
+cousin: {
+ "20s":[30000,30000,30000,"いとこは3万円が基本です。"],
+ "30s":[30000,30000,50000,"基本は3万円。親しいいとこなら5万円も目安に入ります。"],
+ "40s":[50000,30000,50000,"40代では5万円が目安になってきます。他の親族とも揃えると安心です。"],
+ "50s":[50000,50000,50000,"5万円が目安です。親族間のバランスも意識しましょう。"]},
+nephew: {
+ "20s":[30000,30000,30000,"甥・姪の結婚式に20代で出席するケースは少なめですが、3万円が目安です。"],
+ "30s":[30000,30000,50000,"叔父・叔母の立場として3万円が基本、気持ちを添えるなら5万円です。"],
+ "40s":[50000,50000,100000,"叔父・叔母の立場では5万円が目安。親しい間柄なら10万円も選ばれます。"],
+ "50s":[100000,50000,100000,"50代以上では10万円が最も多い金額です。親族の慣習も確認しましょう。"]},
+mentor: {
+ "20s":[30000,30000,30000,"恩師へのご祝儀は3万円が基本です。"],
+ "30s":[30000,30000,50000,"基本は3万円。特にお世話になった先生なら5万円も目安です。"],
+ "40s":[50000,30000,50000,"40代では5万円も目安に入ってきます。"],
+ "50s":[50000,50000,50000,"5万円が目安です。"]}
+};
+// couple[rel] / absent[rel] = [おすすめ, 下限, 上限, ワンポイント]
+var COUPLE = {
+friend:[50000,50000,50000,"夫婦2人分は、1人分の単純な2倍ではなく「+2万円前後」が目安。友人夫婦なら5万円が中心です。"],
+colleague:[50000,50000,50000,"夫婦で出席する同僚は5万円が目安です。"],
+senior:[50000,50000,70000,"目上の方の式に夫婦で出席する場合は5万円が目安。多くても7万円程度までが一般的です。"],
+junior:[70000,50000,70000,"部下・後輩の式に夫婦で出席するなら7万円が目安です（30代は5万円でも失礼にはなりません）。"],
+sibling:[70000,70000,100000,"兄弟・姉妹の式に夫婦で出席する場合は7万円が中心。余裕があれば10万円も目安です。"],
+cousin:[50000,50000,70000,"いとこの式に夫婦で出席する場合は5万円が目安です。"],
+nephew:[100000,70000,100000,"甥・姪の式に夫婦で出席する場合は10万円が目安です。"],
+mentor:[70000,50000,70000,"恩師の式に夫婦で出席する場合は7万円が目安です。"]};
+var ABSENT = {
+friend:[10000,10000,30000,"欠席の場合は、出席相場の半額〜3分の1が目安。現金なら1万円、品物なら5,000〜10,000円が一般的です。式の1週間前までに届くように贈りましょう。"],
+colleague:[10000,10000,30000,"欠席する同僚へは1万円が目安。職場で連名のお祝いに参加する方法もあります。"],
+senior:[10000,10000,10000,"目上の方へ欠席のお祝いは1万円が目安。多すぎると気を遣わせてしまいます。"],
+junior:[10000,10000,30000,"部下・後輩へ欠席のお祝いは1万円が基本。立場によっては3万円にする人もいます。"],
+sibling:[30000,30000,50000,"兄弟・姉妹へ欠席の場合でも3万円が目安。後日あらためてお祝いを渡す場合も含め、家族で相談を。"],
+cousin:[10000,10000,30000,"いとこへ欠席のお祝いは1万円が目安です。"],
+nephew:[30000,30000,50000,"甥・姪へ欠席のお祝いは3万円が目安です。"],
+mentor:[10000,10000,30000,"恩師へ欠席のお祝いは1万円が目安です。"]};
+var RELNAME = {friend:"友人",colleague:"職場の同僚",senior:"上司・先輩",junior:"部下・後輩",sibling:"兄弟・姉妹",cousin:"いとこ",nephew:"甥・姪",mentor:"恩師"};
+var MODENAME = {solo:"1人で出席",couple:"夫婦で出席",absent:"欠席（お祝いのみ）"};
+function fmt(n){ return (n/10000) + "万円"; }
+function calc(){
+  var rel = document.getElementById("rel").value;
+  var age = document.getElementById("age").value;
+  var mode = document.getElementById("mode").value;
+  var d = mode === "solo" ? SOLO[rel][age] : (mode === "couple" ? COUPLE[rel] : ABSENT[rel]);
+  document.getElementById("r-label").textContent = RELNAME[rel] + "・" + MODENAME[mode] + "のおすすめ";
+  document.getElementById("r-amount").textContent = fmt(d[0]);
+  document.getElementById("r-range").textContent = d[1] === d[2] ? "相場の目安：" + fmt(d[1]) : "相場の目安：" + fmt(d[1]) + "〜" + fmt(d[2]);
+  document.getElementById("r-note").textContent = d[3];
+}
+document.getElementById("calc").addEventListener("click", calc);
+["rel","age","mode"].forEach(function(id){ document.getElementById(id).addEventListener("change", calc); });
+calc();
+</script>
+</body>
+</html>
